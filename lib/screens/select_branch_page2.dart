@@ -152,9 +152,13 @@ class _AttendenceDropDownpage2State extends State<AttendenceDropDownpage2> {
                               Expanded(
                                 child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                        minimumSize: Size(
-                                            mediaquery.size.width * 0.9,
-                                            mediaquery.size.height * 0.05)),
+                                        // minimumSize: Size(
+                                        //     mediaquery.size.width * 0.9,
+                                        //     mediaquery.size.height * 0.05)),
+                                        padding: EdgeInsets.all(0.0),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30.0))),
                                     onPressed: () {
                                       // presentStudents = new List.empty(growable: true);
                                       // absentStudents = new List.empty(growable: true);
@@ -167,10 +171,23 @@ class _AttendenceDropDownpage2State extends State<AttendenceDropDownpage2> {
                                                 AttendencePage()),
                                       );
                                     },
-                                    child: Text("Take Attendance",
-                                        style: TextStyle(
-                                            fontSize: mediaquery.size.height *
-                                                0.02))),
+                                    child: Container(
+                                      height: mediaquery.size.height * 0.05,
+                                      width: mediaquery.size.width * 0.9,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(20.0)),
+                                          gradient: LinearGradient(
+                                              colors: <Color>[
+                                                Colors.orange[200]!,
+                                                Colors.pinkAccent
+                                              ])),
+                                      child: Text("Take Attendance",
+                                          style: TextStyle(
+                                              fontSize: mediaquery.size.height *
+                                                  0.02)),
+                                    )),
                               ),
                             ],
                           ),

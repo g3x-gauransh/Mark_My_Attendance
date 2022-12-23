@@ -59,55 +59,70 @@ class _AttendencePageState extends State<AttendencePage> {
           //
           //
           //
-          ElevatedButton(
-            onPressed: () => showDialog<String>(
-              context: context,
-              builder: (BuildContext context) => AlertDialog(
-                shape: RoundedRectangleBorder(                    
-                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                content: Builder(
-                  builder: (context) {
-                    var height = MediaQuery.of(context).size.height;
-                    var width = MediaQuery.of(context).size.height;
-                    return Container(
-                      height: height*0.025,
-                      width: width*0.3 ,
-                    );
-                  },
-                ),
-                title: Text('Submit Attendance?',
-                    style: TextStyle(fontSize: mediaquery.size.height * 0.02)),
-                // content: const Text('AlertDialog description'),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () => Navigator.pop(context, 'Cancel'),
-                    child: Text('Cancel',
-                        style:
-                            TextStyle(fontSize: mediaquery.size.height * 0.02)),
-                  ),
-                  TextButton(
-                    onPressed: () => {
-                      ResetState(),
-                      UpdateLists(),
-                      UpdateDB(),
-                      clearList(),
-                      Navigator.pop(
-                        context,
-                        'Submit',
-                      ),
+          Container(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.all(0.0),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30))),
+              onPressed: () => showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                  content: Builder(
+                    builder: (context) {
+                      var height = MediaQuery.of(context).size.height;
+                      var width = MediaQuery.of(context).size.height;
+                      return Container(
+                        height: height * 0.025,
+                        width: width * 0.3,
+                      );
                     },
-                    child: Text('Submit',
-                        style:
-                            TextStyle(fontSize: mediaquery.size.height * 0.02)),
                   ),
-                ],
+                  title: Text('Submit Attendance?',
+                      style:
+                          TextStyle(fontSize: mediaquery.size.height * 0.02)),
+                  // content: const Text('AlertDialog description'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, 'Cancel'),
+                      child: Text('Cancel',
+                          style: TextStyle(
+                              fontSize: mediaquery.size.height * 0.02)),
+                    ),
+                    TextButton(
+                      onPressed: () => {
+                        ResetState(),
+                        UpdateLists(),
+                        UpdateDB(),
+                        clearList(),
+                        Navigator.pop(
+                          context,
+                          'Submit',
+                        ),
+                      },
+                      child: Text('Submit',
+                          style: TextStyle(
+                              fontSize: mediaquery.size.height * 0.02)),
+                    ),
+                  ],
+                ),
+              ),
+              child: Container(
+                height: mediaquery.size.height * 0.05,
+                width: mediaquery.size.width * 0.7,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    gradient: LinearGradient(colors: <Color>[
+                      Colors.orange[200]!,
+                      Colors.pinkAccent
+                    ])),
+                child: Text('Submit',
+                    style: TextStyle(fontSize: mediaquery.size.height * 0.02)),
               ),
             ),
-            child: Text('Submit',
-                style: TextStyle(fontSize: mediaquery.size.height * 0.02)),
-            style: ElevatedButton.styleFrom(
-                minimumSize: Size(mediaquery.size.width * 0.7,
-                    mediaquery.size.height * 0.05)),
           ),
         ],
       ),

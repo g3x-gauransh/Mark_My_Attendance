@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>307909534155-o5go06gjkp6a336h7cc0m31204sdb1kl.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.307909534155-o5go06gjkp6a336h7cc0m31204sdb1kl</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBm1SO2yH19T_16I5tEQGjAH9-mtEfDrMw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>307909534155</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.markMyAttendance</string>
+	<key>PROJECT_ID</key>
+	<string>mark-my-attendance-675a5</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mark-my-attendance-675a5.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:307909534155:ios:aab38c02a078bb5745d64e</string>
+</dict>
+</plist>

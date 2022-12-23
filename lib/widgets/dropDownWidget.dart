@@ -57,7 +57,7 @@ Widget dropdownButton(
           padding: EdgeInsets.symmetric(horizontal: 10.0),
           decoration: BoxDecoration(
               color: Colors.grey[100],
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(30.0),
               border: Border.all(
                   color: Colors.grey, style: BorderStyle.solid, width: 0.80),
               boxShadow: const [
@@ -76,7 +76,7 @@ Widget dropdownButton(
             // hint: Text(hint,style: TextStyle(color: Colors.black),),
             value: dropdownValue,
             icon: const Icon(Icons.keyboard_arrow_down_outlined),
-            elevation: 16,
+            elevation: 25,
             dropdownColor: Colors.grey[100],
             style: const TextStyle(color: Colors.black),
             underline: Container(height: 0, color: Colors.black),
@@ -124,8 +124,8 @@ class _dropdownState extends State<dropdown> {
       case "Program":
         programdropdownValue = dropdownValue;
         break;
-        // case "School":
-        //   schooldropdownValue = dropdownValue;
+      // case "School":
+      //   schooldropdownValue = dropdownValue;
       case "Branch":
         branchdropdownValue = dropdownValue;
         break;
@@ -138,11 +138,11 @@ class _dropdownState extends State<dropdown> {
       case "Batch":
         batchdropdownValue = dropdownValue;
         break;
-        case "Subject":
-          subjectdropdownValue = dropdownValue;
-          break;
-        // case "Faculty":
-        //   facultiesdropdownValue = dropdownValue;
+      case "Subject":
+        subjectdropdownValue = dropdownValue;
+        break;
+      // case "Faculty":
+      //   facultiesdropdownValue = dropdownValue;
       case "Period":
         perioddropdownValue = dropdownValue;
         break;
@@ -165,64 +165,67 @@ class _dropdownState extends State<dropdown> {
     //print(string.length);
     //print(dropdownValue);
     return Container(
-      child: Column(
-        children: [
-          Text(
-            hint,
-            style: TextStyle(fontSize: mediaquery.size.height * 0.025),
-          ),
-          SizedBox(
-            height: mediaquery.size.height * 0.008,
-          ),
-          Container(
-            height: mediaquery.size.height * 0.05,
-            padding: EdgeInsets.symmetric(
-                horizontal: mediaquery.size.height * 0.012),
-            decoration: BoxDecoration(
-                color: Colors.grey[100],
-                borderRadius: BorderRadius.circular(15.0),
-                border: Border.all(
-                    color: Colors.grey,
-                    style: BorderStyle.solid,
-                    width: mediaquery.size.height * 0.0005),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    offset: const Offset(
-                      5.0,
-                      5.0,
-                    ),
-                    blurRadius: 5.0,
-                    spreadRadius: 1.0,
-                  ),
-                ]),
-            child: DropdownButton<String>(
-              isExpanded: true,
-              // hint: Text(hint,style: TextStyle(color: Colors.black),),
-              value: dropdownValue,
-              icon: const Icon(Icons.keyboard_arrow_down_outlined),
-              elevation: 16,
-              dropdownColor: Colors.grey[100],
-              style: TextStyle(
-                  color: Colors.black, fontSize: mediaquery.size.height * 0.02),
-              underline: Container(height: 0, color: Colors.black),
-              onChanged: (String? newval) {
-                setState(() {
-                  dropdownValue = newval!;
-                  //MongoDataBase.changeCollection();
-                  ChangeState();
-                });
-              },
-
-              items: string.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text(
+              hint,
+              style: TextStyle(fontSize: mediaquery.size.height * 0.025),
             ),
-          ),
-        ],
+            SizedBox(
+              height: mediaquery.size.height * 0.008,
+            ),
+            Container(
+              height: mediaquery.size.height * 0.05,
+              padding: EdgeInsets.symmetric(
+                  horizontal: mediaquery.size.height * 0.017),
+              decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.circular(30.0),
+                  border: Border.all(
+                      color: Colors.grey,
+                      style: BorderStyle.solid,
+                      width: mediaquery.size.height * 0.0005),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: const Offset(
+                        5.0,
+                        5.0,
+                      ),
+                      blurRadius: 5.0,
+                      spreadRadius: 1.0,
+                    ),
+                  ]),
+              child: DropdownButton<String>(
+                isExpanded: true,
+                // hint: Text(hint,style: TextStyle(color: Colors.black),),
+                value: dropdownValue,
+                icon: const Icon(Icons.keyboard_arrow_down_outlined),
+                elevation: 16,
+                dropdownColor: Colors.grey[100],
+                style: TextStyle(
+                    color: Colors.black, fontSize: mediaquery.size.height * 0.02),
+                underline: Container(height: 0, color: Colors.black),
+                onChanged: (String? newval) {
+                  setState(() {
+                    dropdownValue = newval!;
+                    //MongoDataBase.changeCollection();
+                    ChangeState();
+                  });
+                },
+      
+                items: string.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

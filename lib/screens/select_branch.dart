@@ -33,14 +33,16 @@ class _AttendenceDropdownPage1State extends State<AttendenceDropdownPage1> {
                 child: Container(
                   //decoration: BoxDecoration(border: Border.all(width: 2)),
                   child: Image.asset('asset/MSIT.png'),
-                  width: mediaquery.size.width *0.3 , //105
-                  height: mediaquery.size.width*0.3, //105
+                  width: mediaquery.size.width * 0.3, //105
+                  height: mediaquery.size.width * 0.3, //105
                 ),
               ),
               Expanded(
                   child: Text(
                 'Maharaja Surajmal Institute Of Technology',
-                style: TextStyle(fontSize: mediaquery.size.height*0.027, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    fontSize: mediaquery.size.height * 0.027,
+                    fontWeight: FontWeight.w500),
                 textAlign: TextAlign.center,
               ))
             ],
@@ -102,9 +104,13 @@ class _AttendenceDropdownPage1State extends State<AttendenceDropdownPage1> {
                 // ),
                 // dropdownButton(batchdropdownValue,Batch,"Batch"),
                 SizedBox(
-                  height: mediaquery.size.height *0.025,
+                  height: mediaquery.size.height * 0.025,
                 ),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.all(0.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0))),
                   onPressed: () async {
                     // MongoDataBase.changeCollection();
                     yeardropdownValue =
@@ -119,17 +125,32 @@ class _AttendenceDropdownPage1State extends State<AttendenceDropdownPage1> {
                           builder: (context) => AttendenceDropDownpage2()),
                     );
                   },
-                  child: const Text(
-                    "Next",
+                  child: Container(
+                    width: mediaquery.size.width * 0.4,
+                    height: mediaquery.size.height *0.05,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        gradient: LinearGradient(colors: <Color>[
+                          Colors.orange[200]!,
+                          Colors.pinkAccent
+                        ])),
+                    child: Text(
+                      "Next",
+                      style: TextStyle(
+                          fontSize: mediaquery.size.height * 0.025,
+                          fontWeight: FontWeight.w400),
+                    ),
                   ),
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: Size(300, 60),
-                      primary: Color.fromARGB(255, 255, 71, 26),
-                      onPrimary: Colors.black,
-                      elevation: 15,
-                      textStyle:TextStyle(
-                          fontSize: mediaquery.size.height*0.025, fontWeight: FontWeight.w400)),
-                )
+                  // style: ElevatedButton.styleFrom(
+                  //     //minimumSize: Size(300, 60),
+                  //     // primary: Color.fromARGB(255, 255, 71, 26),
+                  //     // onPrimary: Colors.black,
+                  //     elevation: 15,
+                  //     textStyle: TextStyle(
+                  //         fontSize: mediaquery.size.height * 0.025,
+                  //         fontWeight: FontWeight.w400)),
+                ),
               ],
             ),
           ),
