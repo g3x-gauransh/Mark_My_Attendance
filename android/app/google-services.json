@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "307909534155",
+    "project_id": "mark-my-attendance-675a5",
+    "storage_bucket": "mark-my-attendance-675a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307909534155:android:15aec261e4a1adc245d64e",
+        "android_client_info": {
+          "package_name": "com.example.mark_my_attendance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "307909534155-lqeqmhlsmcsh16apprl64j7ll9eg0tpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ3t5xhkV2r7sN9gOI_5cA9TkplJQsT58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "307909534155-lqeqmhlsmcsh16apprl64j7ll9eg0tpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
