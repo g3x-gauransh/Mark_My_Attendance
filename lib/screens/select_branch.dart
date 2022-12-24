@@ -41,7 +41,7 @@ class _AttendenceDropdownPage1State extends State<AttendenceDropdownPage1> {
                   child: Text(
                 'Maharaja Surajmal Institute Of Technology',
                 style: TextStyle(
-                    fontSize: mediaquery.size.height * 0.027,
+                    fontSize: mediaquery.size.height * 0.035,   //previous 0.027
                     fontWeight: FontWeight.w500),
                 textAlign: TextAlign.center,
               ))
@@ -108,6 +108,7 @@ class _AttendenceDropdownPage1State extends State<AttendenceDropdownPage1> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                    elevation: 15,
                       padding: EdgeInsets.all(0.0),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0))),
