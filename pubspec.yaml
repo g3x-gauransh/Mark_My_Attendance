@@ -46,8 +46,9 @@ dev_dependencies:
   intl: ^0.17.0
 
 flutter_native_splash:
-  color: "#ff0800"
-  image: asset/MSIT_NEW.png
+  # color: "#ff0800"
+  # image: asset/MSIT_NEW.png
+  background_image: asset/MarkED.png
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
