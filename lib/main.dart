@@ -12,7 +12,7 @@ import 'firebase_options.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  //FlutterNativeSplash.removeAfter(initialization);
+  FlutterNativeSplash.removeAfter(initialization);
 
   await initialization(null);
   await StudentMongoDB.connect();

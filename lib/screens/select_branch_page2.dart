@@ -155,7 +155,6 @@ class _AttendenceDropDownpage2State extends State<AttendenceDropDownpage2> {
                                         // minimumSize: Size(
                                         //     mediaquery.size.width * 0.9,
                                         //     mediaquery.size.height * 0.05)),
-                                        elevation: 15,
                                         padding: EdgeInsets.all(0.0),
                                         shape: RoundedRectangleBorder(
                                             borderRadius:
