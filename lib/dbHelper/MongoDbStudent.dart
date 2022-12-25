@@ -81,6 +81,17 @@ class StudentMongoDB {
   }
 
   //element['date']['01-01-01'][0]['1']
+
+  Future checkDB() async {
+    var result = await userCollection.findOne();
+
+    if (result['date'][date][perioddropdownValue] == null) {
+      print('false');
+      return false;
+    }
+    print('true');
+    return true;
+  }
 }
 
 

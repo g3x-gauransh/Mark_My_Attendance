@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:motion_toast/motion_toast.dart';
 
 import '../utils/names.dart';
 import '../theme/colors.dart';
@@ -92,7 +95,8 @@ class _AttendencePageState extends State<AttendencePage> {
                               fontSize: mediaquery.size.height * 0.02)),
                     ),
                     TextButton(
-                      onPressed: () => {
+                      onPressed: () async => {
+                        checkInternet(),
                         ResetState(),
                         UpdateLists(),
                         UpdateDB(),
@@ -101,6 +105,7 @@ class _AttendencePageState extends State<AttendencePage> {
                           context,
                           'Submit',
                         ),
+                        checkUpdateDB(),
                       },
                       child: Text('Submit',
                           style: TextStyle(
@@ -254,5 +259,41 @@ class _AttendencePageState extends State<AttendencePage> {
     absentStudents.removeRange(0, absentStudents.length);
 
     //print()
+  }
+
+  void checkUpdateDB() {
+    if (StudentMongoDB().checkDB == false) {
+      print('false toast');
+      MotionToast(
+        icon: Icons.alarm,
+        primaryColor: Colors.red,
+        description: Text(
+            'Attendance not updated\n Please check your internet connection'),
+      ).show(context);
+    } else {
+      print('true toast');
+      MotionToast(
+        icon: Icons.message,
+        primaryColor: Colors.green,
+        description: Text('Attendance Recorded Successfully'),
+      ).show(context);
+    }
+  }
+
+  void checkInternet() async {
+    try {
+      final result = await InternetAddress.lookup('msit.in');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        print('connected to Internet');
+      }
+    } on SocketException catch (_) {
+      print('Not connected to internet');
+      MotionToast(
+        icon: Icons.alarm,
+        primaryColor: Colors.red,
+        description: Text(
+            'Attendance not updated\n Please check your internet connection'),
+      ).show(context);
+    }
   }
 }
