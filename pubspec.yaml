@@ -73,6 +73,8 @@ flutter:
   assets:
     - asset/MSIT_NEW.png
     - asset/MSIT.png
+    - asset/MarkED.png
+    - asset/MarkED-logo.jpg
     # - assest/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

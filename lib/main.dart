@@ -8,6 +8,8 @@ import './theme/colors.dart';
 import './screens/select_branch.dart';
 import './utils/names.dart';
 import 'firebase_options.dart';
+import './screens/loginScreen.dart';
+import './dbHelper/loginMongoDB.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +19,7 @@ Future main() async {
   await initialization(null);
   await StudentMongoDB.connect();
   await MongoDataBase.connect();
+  await LoginMongoDB.connect();
   await StudentMongoDB.getStudentData();
 //   await Firebase.initializeApp(
 //     options: DefaultFirebaseOptions.currentPlatform,
@@ -32,15 +35,15 @@ Future initialization(BuildContext? context) async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var themeData = ThemeData(
-        primarySwatch: newprimaryColor,
-        dividerColor: Colors.white);
+    var themeData =
+        ThemeData(primarySwatch: newprimaryColor, dividerColor: Colors.white);
     // DE0000
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Attendance Management System',
       theme: themeData,
-      home: AttendenceDropdownPage1(),
+      //home: AttendenceDropdownPage1(),
+      home: LoginScreen(),
     );
   }
 }

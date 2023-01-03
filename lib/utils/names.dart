@@ -166,6 +166,9 @@ var MONGO_CONN_URL =
     "mongodb+srv://new_user1:g2oZtomUdCIYJ2k7@cluster0.3zq3bok.mongodb.net/Subject?retryWrites=true&w=majority";
 var USER_COLLECTION = branchdropdownValue;
 
+var MONGO_CONN_URL_TEACHER_LOGIN =
+    "mongodb+srv://new_user1:g2oZtomUdCIYJ2k7@cluster0.3zq3bok.mongodb.net/LoginAuthentication?retryWrites=true&w=majority";
+
 void clearList() {
   absentStudents.clear();
   presentStudents.clear();
