@@ -12,11 +12,15 @@ class StudentMongoDB {
 
   // static var StudentURL =
   //     "mongodb+srv://new_user1:g2oZtomUdCIYJ2k7@cluster0.3zq3bok.mongodb.net/Details?retryWrites=true&w=majority";
+  // static var StudentURL =
+  //     "mongodb+srv://new_user1:g2oZtomUdCIYJ2k7@cluster0.3zq3bok.mongodb.net/Detail?retryWrites=true&w=majority"; //database for original data
+  // static var Collection = "Test";
   static var StudentURL =
-      "mongodb+srv://new_user1:g2oZtomUdCIYJ2k7@cluster0.3zq3bok.mongodb.net/Detail?retryWrites=true&w=majority"; //database for original data
-  static var Collection = "Test";
+      "mongodb+srv://new_user1:g2oZtomUdCIYJ2k7@cluster0.3zq3bok.mongodb.net/student_info?retryWrites=true&w=majority";
+  static var Collection;
   //static List<dynamic> arrData = userCollection.find().toList();
   static connect() async {
+    Collection = branchdropdownValue;
     db = await Db.create(StudentURL);
     await db.open();
     inspect(db);
@@ -25,7 +29,11 @@ class StudentMongoDB {
   }
 
   static getStudentData() async {
-    var studentList = await userCollection.find().toList();
+    //String currBatch=;
+    var currSem = int.parse(semesterdropdownValue);
+    print(batchdropdownValue);
+    var studentList =
+        await userCollection.find({"sem": currSem, "branch":batchdropdownValue}).toList();
     // print(studentList);
     // print(studentList[0]['name']);
     // studentList.forEach((element) => studentName?.add(element['name']));
@@ -37,6 +45,7 @@ class StudentMongoDB {
     // print(studentName);
     // presentStudents.clear();
     // absentStudents.clear();
+    finalList.clear();
     print(studentList[0]['_id'].runtimeType);
     Students.clear();
     (studentList.forEach((element) => finalList

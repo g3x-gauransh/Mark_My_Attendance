@@ -98,7 +98,9 @@ class _AttendencePageState extends State<AttendencePage> {
                       ResetState(),
                       UpdateLists(),
                       UpdateDB(),
-                      clearList(),
+                      setState(() {
+                        clearList();
+                      }),
                       Navigator.pop(
                         context,
                         'Submit',

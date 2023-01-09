@@ -17,10 +17,10 @@ Future main() async {
   FlutterNativeSplash.removeAfter(initialization);
 
   await initialization(null);
-  await StudentMongoDB.connect();
+  //await StudentMongoDB.connect();
   await MongoDataBase.connect();
   await LoginMongoDB.connect();
-  await StudentMongoDB.getStudentData();
+  // await StudentMongoDB.getStudentData();
 //   await Firebase.initializeApp(
 //     options: DefaultFirebaseOptions.currentPlatform,
 // );

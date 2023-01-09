@@ -5,6 +5,7 @@ import 'package:mark_my_attendance/theme/colors.dart';
 import '../widgets/dropDownWidget.dart';
 import '../utils/names.dart';
 import '../screens/select_branch_page2.dart';
+import '../widgets/drawer.dart';
 
 class AttendenceDropdownPage1 extends StatefulWidget {
   const AttendenceDropdownPage1({Key? key}) : super(key: key);
@@ -21,6 +22,9 @@ class _AttendenceDropdownPage1State extends State<AttendenceDropdownPage1> {
     print(mediaquery.size.height);
     print(mediaquery.size.width);
     return Scaffold(
+      drawer: Drawer(
+        child: MainDrawer(),
+      ),
       appBar: AppBar(
         title: Text('Attendance Management System'),
       ),
@@ -117,9 +121,14 @@ class _AttendenceDropdownPage1State extends State<AttendenceDropdownPage1> {
                         (double.parse(semesterdropdownValue) / 2)
                             .ceil()
                             .toString();
-                    print(yeardropdownValue);
+                    //print(yeardropdownValue);
                     Subject.clear();
                     await MongoDataBase.getData();
+                    setState(() {
+                      print("checkBranch: $branchdropdownValue");
+                      Batch=CheckBranch();
+                      // print()
+                    });
                     Navigator.of(context).push(
                       MaterialPageRoute(
                           builder: (context) => AttendenceDropDownpage2()),
@@ -127,7 +136,7 @@ class _AttendenceDropdownPage1State extends State<AttendenceDropdownPage1> {
                   },
                   child: Container(
                     width: mediaquery.size.width * 0.4,
-                    height: mediaquery.size.height *0.05,
+                    height: mediaquery.size.height * 0.05,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(20.0)),

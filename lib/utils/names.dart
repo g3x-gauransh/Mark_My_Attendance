@@ -28,7 +28,20 @@ List<String> Period = [
   "6",
 ];
 
-List<String> Batch = ["Morning-1", "Morning-2", "Morning-3", "Evening"];
+// List<String> Batch = ["Morning-1", "Morning-2", "Morning-3", "Evening"];
+List<String> Batch = CheckBranch();
+
+List<String> CheckBranch() {
+  if (branchdropdownValue == "CSE")
+    return ["CSE-1", "CSE-2", "CSE-3", "CSE-E"];
+  else if (branchdropdownValue == "IT")
+    return ["IT-1", "IT-2", "IT-E"];
+  else if (branchdropdownValue == "ECE")
+    return ["ECE-1", "ECE-2", "ECE-E"];
+  else {
+    return ["EEE"];
+  }
+}
 
 List<String> Branch = [
   "CSE",
@@ -37,20 +50,7 @@ List<String> Branch = [
   "EEE",
 ];
 
-List<String> Subject = [
-  // "Artificial Intelligence",
-  // "Theory of Computation",
-  // "Object Oriented Programming",
-  // "CN",
-  // "Java",
-  // "Industrial Management",
-  // "Applied Maths-1",
-  // "Applied Chemistry-1",
-  // "Applied Physics-1",
-  // "Compiler Design",
-  // "Computer organisation and Architecture",
-  // "Machine Learning",
-];
+List<String> Subject = [];
 List<String> Students = [];
 
 List<int> isSelectedList = [];
@@ -64,92 +64,7 @@ var today = new DateTime.now();
 var now = DateFormat('dd-MM-yy');
 var date = now.format(today);
 
-List attendencecolor = [
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-  // Colors.white,
-];
+List attendencecolor = [];
 //  0, /*Absent*/    1, /*Present*/    2 /*Absent*/
 String semesterdropdownValue = Semester[0];
 String batchdropdownValue = Batch[0];

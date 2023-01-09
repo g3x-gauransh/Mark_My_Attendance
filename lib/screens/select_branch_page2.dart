@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../dbHelper/MongoDbStudent.dart';
 import '../utils/names.dart';
 import '../widgets/dropDownWidget.dart';
 import '../screens/attendencePage.dart';
@@ -18,7 +19,7 @@ class _AttendenceDropDownpage2State extends State<AttendenceDropDownpage2> {
   @override
   Widget build(BuildContext context) {
     var mediaquery = MediaQuery.of(context);
-    isSelectedList = List.filled(finalList.length, 0);
+    //isSelectedList = List.filled(finalList.length*2, 0);
     attendencecolor = List.filled(80, Colors.white);
     return Scaffold(
       appBar: AppBar(
@@ -159,12 +160,14 @@ class _AttendenceDropDownpage2State extends State<AttendenceDropDownpage2> {
                                         shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(30.0))),
-                                    onPressed: () {
+                                    onPressed: () async {
                                       // presentStudents = new List.empty(growable: true);
                                       // absentStudents = new List.empty(growable: true);
-                                      clearList();
                                       print(presentStudents);
                                       print(absentStudents);
+                                      await StudentMongoDB.connect();
+                                      await StudentMongoDB.getStudentData();
+                                      isSelectedList = List.filled(finalList.length*2, 0);
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
                                             builder: (context) =>
