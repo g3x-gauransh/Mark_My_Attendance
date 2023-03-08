@@ -63,6 +63,7 @@ class LoginScreenState extends State<LoginScreen> {
                           color: Colors.pink,
                         ),
                         child: TextField(
+                          cursorColor: Colors.white,
                           onChanged: (value) {
                             //print("onchanged: $inputEmail");
                             setState(() {
@@ -97,6 +98,8 @@ class LoginScreenState extends State<LoginScreen> {
                           color: Colors.pink,
                         ),
                         child: TextField(
+                          cursorColor: Colors.white,
+                          obscureText: true,
                           onChanged: (value) {
                             //print("onchanged");
                             setState(() {
@@ -121,8 +124,8 @@ class LoginScreenState extends State<LoginScreen> {
                               padding: EdgeInsets.all(0.0),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0))),
-                          onPressed: () async{
-                            var c=await LoginMongoDB()
+                          onPressed: () async {
+                            var c = await LoginMongoDB()
                                 .Authentication(inputEmail, inputPassword);
                             print("check: $c");
                             if (c == true) {

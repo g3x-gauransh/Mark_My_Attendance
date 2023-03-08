@@ -1,9 +1,7 @@
 import 'dart:developer';
 
-import 'package:mark_my_attendance/dbHelper/constant.dart';
 import 'package:mark_my_attendance/utils/names.dart';
 import 'package:mongo_dart/mongo_dart.dart';
-import './constant.dart';
 
 class MongoDataBase {
   static var db, userCollection;
@@ -13,7 +11,8 @@ class MongoDataBase {
     await db.open();
     inspect(db);
     //USER_COLLECTION = branchdropdownValue;
-    userCollection = db.collection(branchdropdownValue);
+    //userCollection = db.collection(branchdropdownValue);
+    userCollection = db.collection((semesterdropdownValue));
   }
 
   // static changeCollection() {
@@ -22,14 +21,34 @@ class MongoDataBase {
   // }
 
   static getData() async {
-    userCollection = db.collection(branchdropdownValue);
-    var arrData = await userCollection.find().toList();
+    userCollection = db.collection((semesterdropdownValue));
+    //print(yeardropdownValue);
+
+    String aclass = "";
+    print(batchdropdownValue);
+    print(branchdropdownValue);
+    if (semesterdropdownValue == "2" || semesterdropdownValue == "8") {
+      aclass = batchdropdownValue;
+    } else {
+      aclass = branchdropdownValue;
+    }
+
+    print("aclass");
+    print(aclass);
+    var arrData = await userCollection.find({"name": aclass}).toList();
+    //List<Map<String,Object?>>
     //arrData.clear();
     //return arrData;
     // print(branchdropdownValue);
-    // print(arrData);
+
+    print("arrdata:");
+    print(arrData[0]['subject']);
     Subject.clear();
-    Subject = List<String>.from(arrData[0][semesterdropdownValue]);
+
+    // print("arrdata:");
+    // print(arrData.size());
+
+    Subject = List<String>.from(arrData[0]['subject']);
     // print(Subject);
     // print(semesterdropdownValue);
     //print(arrData[0]["1"]);

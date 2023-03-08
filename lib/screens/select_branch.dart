@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mark_my_attendance/dbHelper/mongodb.dart';
+import 'package:mark_my_attendance/screens/select_batch.dart';
 import 'package:mark_my_attendance/theme/colors.dart';
 
 import '../widgets/dropDownWidget.dart';
@@ -68,7 +69,7 @@ class _AttendenceDropdownPage1State extends State<AttendenceDropdownPage1> {
             child: Column(
               children: [
                 SizedBox(
-                  height: mediaquery.size.height * 0.05,
+                  height: mediaquery.size.height * 0.04,
                 ),
                 dropdown(
                   DropdownValue: programdropdownValue,
@@ -96,42 +97,49 @@ class _AttendenceDropdownPage1State extends State<AttendenceDropdownPage1> {
                     DropdownValue: semesterdropdownValue,
                     sTring: Semester,
                     Hint: "Semester"),
-                SizedBox(
-                  height: 20,
-                ),
+                // SizedBox(
+                //   height: 20,
+                // ),
                 // dropdown(
                 //     DropdownValue: yeardropdownValue,
                 //     sTring: CollegeYear,
                 //     Hint: "Year"),
-                // const SizedBox(
-                //   height: 20,
-                // ),
-                // dropdownButton(batchdropdownValue,Batch,"Batch"),
-                SizedBox(
-                  height: mediaquery.size.height * 0.025,
+                const SizedBox(
+                  height: 20,
                 ),
+                // dropdownButton(batchdropdownValue,Batch,"Batch"),
+                // SizedBox(
+                //   height: mediaquery.size.height * 0.025,
+                // ),
+                // dropdown(
+                //     DropdownValue: batchdropdownValue,
+                //     sTring: Batch,
+                //     Hint: "Batch"),
+                // SizedBox(
+                //   height: mediaquery.size.height * 0.025,
+                // ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.all(0.0),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0))),
-                  onPressed: () async {
+                  onPressed: () {
                     // MongoDataBase.changeCollection();
                     yeardropdownValue =
                         (double.parse(semesterdropdownValue) / 2)
                             .ceil()
                             .toString();
                     //print(yeardropdownValue);
-                    Subject.clear();
-                    await MongoDataBase.getData();
+                    // Subject.clear();
+                    // await MongoDataBase.getData();
                     setState(() {
                       print("checkBranch: $branchdropdownValue");
-                      Batch=CheckBranch();
+                      Batch = CheckBranch();
                       // print()
                     });
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                          builder: (context) => AttendenceDropDownpage2()),
+                          builder: (context) => BatchScreen()),
                     );
                   },
                   child: Container(

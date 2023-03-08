@@ -33,11 +33,11 @@ List<String> Batch = CheckBranch();
 
 List<String> CheckBranch() {
   if (branchdropdownValue == "CSE")
-    return ["CSE-1", "CSE-2", "CSE-3", "CSE-E"];
+    return ["CSE-1", "CSE-2", "CSE-3", "CSE-4"];
   else if (branchdropdownValue == "IT")
-    return ["IT-1", "IT-2", "IT-E"];
+    return ["IT-1", "IT-2", "IT-3"];
   else if (branchdropdownValue == "ECE")
-    return ["ECE-1", "ECE-2", "ECE-E"];
+    return ["ECE-1", "ECE-2", "ECE-3"];
   else {
     return ["EEE"];
   }

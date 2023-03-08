@@ -46,20 +46,20 @@ class _AttendenceDropDownpage2State extends State<AttendenceDropDownpage2> {
               SizedBox(
                 height: mediaquery.size.height * 0.025,
               ),
-              dropdown(
-                  DropdownValue: perioddropdownValue,
-                  sTring: Period,
-                  Hint: "Period"),
-              SizedBox(
-                height: mediaquery.size.height * 0.025,
-              ),
-              dropdown(
-                  DropdownValue: batchdropdownValue,
-                  sTring: Batch,
-                  Hint: "Batch"),
-              SizedBox(
-                height: mediaquery.size.height * 0.025,
-              ),
+              // dropdown(
+              //     DropdownValue: perioddropdownValue,
+              //     sTring: Period,
+              //     Hint: "Period"),
+              // SizedBox(
+              //   height: mediaquery.size.height * 0.025,
+              // ),
+              // dropdown(
+              //     DropdownValue: batchdropdownValue,
+              //     sTring: Batch,
+              //     Hint: "Batch"),
+              // SizedBox(
+              //   height: mediaquery.size.height * 0.025,
+              // ),
               dropdown(
                   DropdownValue: subjectdropdownValue,
                   sTring: Subject,
